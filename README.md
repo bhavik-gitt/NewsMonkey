@@ -1,67 +1,93 @@
-# Getting Started with Create React App
+# NewsMonkey
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NewsMonkey is a React-based news web app that displays the latest headlines with infinite scroll.
+
+## Features
+
+- Clean Bootstrap-based UI
+- Infinite scrolling news feed
+- Loading progress bar and spinner
+- Production-ready environment variable setup for API keys
+
+## Tech Stack
+
+- React (Create React App)
+- Bootstrap 5
+- [NewsAPI](https://newsapi.org/)
+
+## Prerequisites
+
+- Node.js 18+
+- npm
+- A NewsAPI key
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+
+   ```bash
+   npm ci
+   ```
+
+3. Configure environment variables:
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+4. Add your NewsAPI key in `.env.local`:
+
+   ```env
+   REACT_APP_NEWS_API=your_newsapi_key_here
+   ```
+
+5. Start development server:
+
+   ```bash
+   npm start
+   ```
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` – start dev server
+- `npm test -- --watchAll=false` – run tests once
+- `npm run build` – create production build
 
-### `npm start`
+## Deployment (Live)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This app is ready for static hosting providers like **Vercel**, **Netlify**, **GitHub Pages**, **Cloudflare Pages**, or **Firebase Hosting**.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Required environment variable
 
-### `npm test`
+Set this in your hosting provider project settings:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `REACT_APP_NEWS_API` = your NewsAPI key
 
-### `npm run build`
+> `REACT_APP_` prefix is required for Create React App client-side environment variables.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Build settings
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Build command: `npm run build`
+- Output directory: `build`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Important notes
 
-### `npm run eject`
+- Never commit real API keys.
+- `.env.local` and environment-specific local files should remain uncommitted.
+- For true production security, route NewsAPI requests through your own backend/proxy so the API key is not exposed in browser network logs.
+- If the API key is missing, the app now shows a clear setup message instead of failing silently.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Troubleshooting
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- If no articles load, verify `REACT_APP_NEWS_API` is set correctly.
+- If build fails in CI, run locally:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  ```bash
+  npm ci
+  npm run build
+  ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
+This project is open source and available under the MIT License.
