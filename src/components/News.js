@@ -10,9 +10,14 @@ const News = (props) => {
   const [totalResults, setTotalResults] = useState(0);
 
   const updateNews = async () => {
+    if (!props.apiKey) {
+      setLoading(false);
+      return;
+    }
+
     props.setProgress(30);
     setLoading(true);
-    const url = `https://newsapi.org/v2/everything?q=apple&from=2025-05-21&to=2025-05-21&sortBy=popularity&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     setArticles(parsedData.articles);
@@ -27,8 +32,12 @@ const News = (props) => {
   }, []);
 
   const fetchMoreData = async () => {
+    if (!props.apiKey) {
+      return;
+    }
+
     const nextPage = page + 1;
-    const url = `https://newsapi.org/v2/everything?q=apple&from=2025-05-21&to=2025-05-21&sortBy=popularity&apiKey=${props.apiKey}&page=${nextPage}&pageSize=${props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${props.apiKey}&page=${nextPage}&pageSize=${props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     setArticles((prevArticles) => prevArticles.concat(parsedData.articles));
@@ -42,7 +51,11 @@ const News = (props) => {
         NewsMonkey - Top Headlines
       </h2>
 
-      {loading ? (
+      {!props.apiKey ? (
+        <div className="alert alert-warning mt-4" role="alert">
+          Missing News API key. Set <code>REACT_APP_NEWS_API</code> in your environment to load live news.
+        </div>
+      ) : loading ? (
         <Spinner />
       ) : (
         <InfiniteScroll
