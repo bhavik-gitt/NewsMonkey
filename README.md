@@ -75,6 +75,7 @@ Set this in your hosting provider project settings:
 
 - Never commit real API keys.
 - `.env.local` and environment-specific local files should remain uncommitted.
+- For true production security, route NewsAPI requests through your own backend/proxy so the API key is not exposed in browser network logs.
 - If the API key is missing, the app now shows a clear setup message instead of failing silently.
 
 ## Troubleshooting
