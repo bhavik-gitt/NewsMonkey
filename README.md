@@ -52,7 +52,6 @@ NewsMonkey is a React-based news web app that displays the latest headlines with
 
 - `npm start` – start dev server
 - `npm test -- --watchAll=false` – run tests once
-- `npm run build` – create production build
 
 ## Deployment (Live)
 
@@ -66,11 +65,6 @@ Set this in your hosting provider project settings:
 
 > `REACT_APP_` prefix is required for Create React App client-side environment variables.
 
-### Build settings
-
-- Build command: `npm run build`
-- Output directory: `build`
-
 ### Important notes
 
 - Never commit real API keys.
@@ -81,12 +75,6 @@ Set this in your hosting provider project settings:
 ## Troubleshooting
 
 - If no articles load, verify `REACT_APP_NEWS_API` is set correctly.
-- If build fails in CI, run locally:
-
-  ```bash
-  npm ci
-  npm run build
-  ```
 
 ## License
 
