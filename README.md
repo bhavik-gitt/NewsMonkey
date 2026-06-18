@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# NewsMonkey
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NewsMonkey is a modern React-based news web application for browsing real-time headlines with a clean, fast, and responsive reading experience.
+
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?logo=bootstrap&logoColor=white)
+![NewsAPI](https://img.shields.io/badge/API-NewsAPI-1E90FF)
+![Status](https://img.shields.io/badge/Status-Active-success)
+
+## Use Cases
+
+- **Daily news browsing**: Quickly scan top headlines in one place.
+- **Category-based reading**: Follow focused topics like business, technology, sports, and entertainment.
+- **Smooth long-form feed consumption**: Read continuously with infinite scrolling.
+- **Frontend portfolio/demo project**: Showcase API integration, state management, and polished UI behavior in React.
+
+## Features
+
+- Clean Bootstrap-based interface with responsive layouts
+- Infinite scrolling news feed for uninterrupted reading
+- Top loading bar + spinner feedback for better perceived performance
+- API-key based environment setup with clear missing-key guidance
+- Reusable card-based article presentation for scannable content
+
+## Tech Stack
+
+| Layer | Technology | Purpose |
+| --- | --- | --- |
+| Frontend Framework | React (Create React App) | Component-based UI and state-driven rendering |
+| Styling System | Bootstrap 5 | Responsive grid, spacing, and visual consistency |
+| Data Source | [NewsAPI](https://newsapi.org/) | Fetching latest headlines and category news |
+| UI Utilities | react-top-loading-bar, react-infinite-scroll-component | Loading feedback and seamless content flow |
+
+## UI/UX Highlights
+
+- **Readable visual hierarchy** with clear headlines, metadata, and article summaries.
+- **Progressive loading feedback** through loading bar and spinner states.
+- **Mobile-friendly responsiveness** for smooth usage across devices.
+- **Card-based design language** for quick content scanning and interaction clarity.
+- **Focused interaction flow** from category selection to article exploration.
+
+## Prerequisites
+
+- Node.js 18+
+- npm
+- A NewsAPI key
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+
+   ```bash
+   npm ci
+   ```
+
+3. Configure environment variables:
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+4. Add your NewsAPI key in `.env.local`:
+
+   ```env
+   REACT_APP_NEWS_API=your_newsapi_key_here
+   ```
+
+5. Start development server:
+
+   ```bash
+   npm start
+   ```
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` – start dev server
+- `npm test -- --watchAll=false` – run tests once
 
-### `npm start`
+## Deployment (Live)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This app is ready for static hosting providers like **Vercel**, **Netlify**, **GitHub Pages**, **Cloudflare Pages**, or **Firebase Hosting**.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Required environment variable
 
-### `npm test`
+Set this in your hosting provider project settings:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `REACT_APP_NEWS_API` = your NewsAPI key
 
-### `npm run build`
+> `REACT_APP_` prefix is required for Create React App client-side environment variables.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Important notes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Never commit real API keys.
+- `.env.local` and environment-specific local files should remain uncommitted.
+- For true production security, route NewsAPI requests through your own backend/proxy so the API key is not exposed in browser network logs.
+- If the API key is missing, the app now shows a clear setup message instead of failing silently.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Troubleshooting
 
-### `npm run eject`
+- If no articles load, verify `REACT_APP_NEWS_API` is set correctly.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is open source and available under the MIT License.
